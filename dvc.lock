@@ -3,16 +3,17 @@ stages:
   preprocess:
     cmd: python src/preprocess.py
     deps:
-    - path: data/dataset_v1.csv
+    - path: data/dataset_v2.csv
       hash: md5
-      md5: fa9fe4cf24f70b69ac65fb33062ddf34
-      size: 1915795
+      md5: 1de64d7671b87bc1e3ca60109d50129d
+      size: 1910089
     - path: src/preprocess.py
       hash: md5
-      md5: 560428c8765578a80c8a5777c182d9a2
-      size: 874
+      md5: 89264d8fa3880d6027caee3916602e06
+      size: 973
     params:
       params.yaml:
+        data.file: dataset_v2.csv
         preprocess.features:
           numerical:
           - MedInc
@@ -27,15 +28,15 @@ stages:
     outs:
     - path: data/processed_data.csv
       hash: md5
-      md5: 1de64d7671b87bc1e3ca60109d50129d
-      size: 1910089
+      md5: 95100e9792582c9797d461684ac5c98f
+      size: 1909585
   train:
     cmd: python src/train.py
     deps:
     - path: data/processed_data.csv
       hash: md5
-      md5: 1de64d7671b87bc1e3ca60109d50129d
-      size: 1910089
+      md5: 95100e9792582c9797d461684ac5c98f
+      size: 1909585
     - path: src/train.py
       hash: md5
       md5: e261a513deabf6527a73ffd35d13ce45
@@ -68,8 +69,8 @@ stages:
     deps:
     - path: data/processed_data.csv
       hash: md5
-      md5: 1de64d7671b87bc1e3ca60109d50129d
-      size: 1910089
+      md5: 95100e9792582c9797d461684ac5c98f
+      size: 1909585
     - path: models/
       hash: md5
       md5: 1475d683a506007597963fdb0ec8e9f9.dir

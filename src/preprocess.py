@@ -4,8 +4,11 @@ import yaml
 with open("params.yaml") as f:
     params = yaml.safe_load(f)
 
+data_file = params['data']['file']
+data_path = f"data/{data_file}"
 
-df = pd.read_csv("data/dataset_v1.csv")
+#df = pd.read_csv("data/dataset_v1.csv")
+df = pd.read_csv(data_path)
 
 print(f"Dataset original: {df.shape}")
 print("Columnas:", df.columns.tolist())

@@ -3,10 +3,11 @@ stages:
     cmd: python src/preprocess.py
     deps:
       - src/preprocess.py
-      - data/dataset_v1.csv
+      - data/${data.file}
     params:
       - preprocess.target
       - preprocess.features
+      - data.file
     outs:
       - data/processed_data.csv
 
